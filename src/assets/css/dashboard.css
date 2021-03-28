@@ -1,18 +1,17 @@
 .dashboard-container-vertical-spacing {
   background-color: #ebeff7;
-  height: calc(100vh - 90px);
   overflow-y: scroll;
+  height: calc(100vh - 90px);
   box-sizing: border-box;
+  padding: 1rem;
 }
 .dashboard-container {
   padding: 0 1rem;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
 }
 .system-process-card {
-  height: 300px;
   width: 100%;
   border-radius: 30px;
   padding: 1rem;
@@ -20,14 +19,66 @@
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.034), 0 7px 5px rgba(0, 0, 0, 0.048);
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 1rem;
+  margin: 1rem 0;
 }
 .system-process-header {
   font-size: 1.5rem;
 }
+.cpu-info-header {
+  font-size: 1.2rem;
+  color: #000a;
+  margin-right: 0.5rem;
+}
+.cpu-info-content {
+  font-size: 1rem;
+  color: #0006;
+}
 .system-process-graph {
-  text-align: center;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 1rem;
+}
+.align-center {
+  width: max-content;
+  margin: 0 auto;
+}
+.system-process-graph-3 {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+.card-footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.dashboard-table {
+  width: 100%;
+}
+.dashboard-table td {
+  padding: 0.2rem;
+}
+.dashboard-table thead tr {
+  background-color: #0003;
+}
+.dashboard-table tbody tr:nth-child(2n) {
+  background-color: #0001;
+}
+.card-footer-button {
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  text-decoration: underline;
+  /* background-color: #fff; */
+  /* border: 2px solid #0007; */
+  cursor: pointer;
+}
+.color-red {
+  color: rgb(238, 59, 59);
+}
+.color-green {
+  color: rgb(21, 184, 0);
 }
 
 @media screen and (min-width: 800px) {
@@ -35,6 +86,11 @@
     gap: 2rem;
     padding: 0 2rem;
     grid-template-columns: repeat(2, 1fr);
-    padding-bottom: 1rem;
+  }
+  .system-process-graph {
+    grid-template-columns: repeat(2, auto);
+  }
+  .system-process-graph-3 {
+    grid-template-columns: repeat(3, auto);
   }
 }

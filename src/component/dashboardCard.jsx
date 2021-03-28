@@ -3,9 +3,11 @@ import React from 'react';
 const DashboardCard = ({ header = 'Header', value = 20, index = 0 }) => {
   const colorArray = ['#d6acf7', '#ff6598', '#a4aab5', '#e5da82', '#28e1ae'];
   const colorValue = (val) => colorArray[index % colorArray.length];
+
   return (
     <div className="system-process-card">
       <div className="system-process-header">{header}</div>
+      <div className="extension-hr"></div>
       <div className="system-process-graph">
         <svg height="200" width="200">
           <g id="UrTavla">

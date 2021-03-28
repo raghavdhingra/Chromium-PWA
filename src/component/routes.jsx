@@ -9,8 +9,14 @@ import Footer from './footer';
 import Header from './header';
 import '../assets/css/dashboard.css';
 import '../assets/css/diagnostics.css';
+import ExtensionIDCard from './extensionIdCard.jsx';
 
 const Routes = () => {
+  const [editorExtensionId, setEditorExtensionId] = useState(
+    'iibgeajafkpplflmefinfnkcmlbflmck'
+  );
+  const [extensionShow, setExtensionShow] = useState(true);
+  // const [editorExtensionId, setEditorExtensionId] = useState('');
   const [state, setState] = useState({
     navigationIndex: 0,
     mobileNavOpen: false,
@@ -37,20 +43,43 @@ const Routes = () => {
           state={state}
           setState={setState}
         />
-        <div className="dashboard-container-vertical-spacing">
-          <div className="dashboard-container">
+        {editorExtensionId && !extensionShow ? (
+          <div className="dashboard-container-vertical-spacing">
             <Switch>
-              <Route exact path="/" component={SystemData} />
+              <Route
+                exact
+                path="/"
+                component={() => (
+                  <SystemData
+                    editorExtensionId={editorExtensionId}
+                    changeExtensionId={setExtensionShow}
+                  />
+                )}
+              />
               <Route
                 exact
                 path="/system-diagnostics"
-                component={SystemDiagnostics}
+                component={() => (
+                  <SystemDiagnostics editorExtensionId={editorExtensionId} />
+                )}
               />
-              <Route exact path="/system-state" component={SystemState} />
+              <Route
+                exact
+                path="/system-state"
+                component={() => (
+                  <SystemState editorExtensionId={editorExtensionId} />
+                )}
+              />
               <Route component={NotFound} />
             </Switch>
           </div>
-        </div>
+        ) : (
+          <ExtensionIDCard
+            extensionId={editorExtensionId}
+            changeExtensionId={setEditorExtensionId}
+            changeExtensionShow={setExtensionShow}
+          />
+        )}
         <Footer />
       </div>
     </div>

@@ -2,3 +2,47 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
+.dashboard-timer-select {
+  padding: 0.2rem 0.4rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.dashboard-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1fr;
+}
+.dashboard-left-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+}
+.fetch-system-data-button {
+  background: #7e4dfc;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid #7e4dfc;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-sizing: border-box;
+  display: inline-block;
+  border: none;
+}
+.fetch-system-data-button:active {
+  transform: scale(0.95);
+}
+.fetch-system-data-button:focus {
+  outline: none;
+}
+.back-danger {
+  background-color: rgb(255, 65, 65);
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-header {
+    grid-template-columns: 1fr auto;
+  }
+}
